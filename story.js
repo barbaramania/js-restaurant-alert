@@ -12,20 +12,48 @@
 
 playerName = prompt("What is your name?");
 alert("Hello  " + playerName + "\n~~Welcome to your find a restaurant app~~");
-
 choice = prompt(introText);
-if (choice === "Seattle") {
-    alert(pathText1);
-} else if (choice === "Bellevue") {
-    alert(pathText2);
+
+if (choice == "Seattle" || choice === "Bellevue") {
+    let location = choice === "Seattle" ? pathText1 : pathText2;
+    let restaurant = choice === "Seattle" ? locationsSeattle : locationsBellevue;
+
+    restaurantChoice = Number(prompt(location));
+    alert("Here is the address for your place:\n" + restaurant[restaurantChoice]);
+
+    if (prompt(pathText4) === "No") {
+        let bonusChoice = Number(prompt(bonus));
+        alert("Here is the address for your place:\n" + bonusLocations[bonusChoice]);
+    }
+    alert(endText);
 } else {
-    alert(pathText3);
+    alert(pathText3)
 }
 
-choice = prompt("Did you find a perfect place?\nYes or No");
-if (choice === "No") {
-    alert(bonus);
-    alert(endText);
-} else {
-    alert(endText);
-}
+
+
+// 
+// if (choice === "Seattle") {
+//     let choice = Number(prompt(pathText1));
+//     alert("Here is the address for your place:\n" + locationsSeattle[choice]);
+//     choice = prompt("Did you find a perfect place?\nYes or No");
+//     if (choice === "No") {
+//         let choice = Number(prompt(bonus));
+//         alert("Here is the address for your place:\n" + bonusLocations[choice]);
+//     } else {
+//         alert(endText);
+//     }
+// } else if (choice === "Bellevue") {
+//     let choice = Number(prompt(pathText2));
+//     alert("Here is the address for your place:\n" + locationsBellevue[choice]);
+//     choice = prompt("Did you find a perfect place?\nYes or No");
+//     if (choice === "No") {
+//         let choice = Number(prompt(bonus));
+//         alert("Here is the address for your place:\n" + bonusLocations[choice]);
+//         alert(endText);
+//     } else {
+//         alert(endText);
+//     }
+// } else {
+//     alert(pathText3);
+// }
